@@ -29,4 +29,5 @@ void PrintArray(string[] array)
     Console.Write("]");
 }
 string[] str = array(size);
+Console.Write("Введенный Вами массив ");
 PrintArray(str);
