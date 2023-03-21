@@ -14,39 +14,24 @@ string[] array(int size)
     }
     return str;
 }
-// Метод вывода массива
-void PrintArray(string[] array)
-{
-    Console.Write("[");
-    for (int i = 0; i < size - 1; i++)
-    {
-        Console.Write($"{array[i]}, ");
-    }
-    for (int i = size - 1; i < size; i++)
-    {
-        Console.Write($"{array[i]}");
-    }
-    Console.Write("]");
-}
 string[] str = array(size);
-Console.Write("Введенный Вами массив ");
-PrintArray(str);
+Console.Write($"Введенный Вами массив [{String.Join("; ", str)}]");
+
 // Метод вывода нового массива из отобранных по заданным требованиям элементов
 void ArrayIf(string[] array)
 {
-    Console.Write("[");
-    for (int i = 0; i < size - 1; i++)
+    string[] result = new string[array.Length];
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
-        { Console.Write($"{array[i]}, "); }
+        {
+            result[j] = array[i];
+            j++;
+        }
     }
-    for (int i = size - 1; i < size; i++)
-    {
-        if (array[i].Length <= 3)
-        { Console.Write($"{array[i]}"); }
-    }
-    Console.Write("]");
+    Array.Resize(ref result, j);
+    Console.WriteLine();
+    Console.WriteLine($"Массив по заданному условию [{String.Join("; ", result)}]");
 }
-Console.WriteLine();
-Console.Write("Массив с учетом заданного условия ");
 ArrayIf(str);
