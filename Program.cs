@@ -31,3 +31,22 @@ void PrintArray(string[] array)
 string[] str = array(size);
 Console.Write("Введенный Вами массив ");
 PrintArray(str);
+// Метод вывода нового массива из отобранных по заданным требованиям элементов
+void ArrayIf(string[] array)
+{
+    Console.Write("[");
+    for (int i = 0; i < size - 1; i++)
+    {
+        if (array[i].Length <= 3)
+        { Console.Write($"{array[i]}, "); }
+    }
+    for (int i = size - 1; i < size; i++)
+    {
+        if (array[i].Length <= 3)
+        { Console.Write($"{array[i]}"); }
+    }
+    Console.Write("]");
+}
+Console.WriteLine();
+Console.Write("Массив с учетом заданного условия ");
+ArrayIf(str);
